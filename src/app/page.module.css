@@ -1,0 +1,496 @@
+/* BANNER (HERO SECTION) */
+.bannerSection {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 100px 0;
+  background-image: linear-gradient(rgba(248, 250, 252, 0.88), rgba(248, 250, 252, 0.94)), url('/edu_banner_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bannerContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bannerTitle {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.bannerDesc {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 650px;
+}
+
+.bannerBtns {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.freeConsultText {
+  font-size: 0.9rem;
+  color: var(--accent-orange);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(249, 115, 22, 0.06);
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(249, 115, 22, 0.15);
+}
+
+/* LOGO CAROUSEL */
+.carouselSection {
+  padding: 40px 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  overflow: hidden;
+}
+
+.carouselTitle {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+
+.carouselContainer {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 60px;
+  animation: scrollLogos 25s linear infinite;
+  white-space: nowrap;
+}
+
+.logoItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+  transition: var(--transition-smooth);
+}
+
+.logoImg {
+  max-height: 28px;
+  max-width: 90px;
+  object-fit: contain;
+  border-radius: 4px;
+  background: var(--bg-primary);
+  padding: 2px 4px;
+  border: 1px solid var(--glass-border);
+}
+
+.logoItem:hover {
+  opacity: 1;
+  color: var(--text-primary);
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--accent-orange);
+  border: 1px solid var(--glass-border);
+}
+
+@keyframes scrollLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* SECTION HEADERS */
+.sectionHeader {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.sectionDesc {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* WHAT IS CPT */
+.whatIsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.whatIsText {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.whatIsVisual {
+  padding: 40px;
+}
+
+.whatIsBullet {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 15px;
+}
+
+.bulletDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-orange);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+/* WHY CHOOSE CPT / DOUBTS */
+.doubtsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.doubtCard {
+  padding: 35px;
+}
+
+.doubtHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.doubtIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(249, 115, 22, 0.08);
+  color: var(--accent-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.doubtQuestion {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.doubtAnswer {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* WORLD MAP / BRANCHES */
+.mapGrid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.mapWrapper {
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: var(--glass-glow);
+}
+
+.worldMapImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.65;
+  filter: grayscale(1) contrast(0.95);
+  transition: var(--transition-smooth);
+}
+
+.worldMapImage:hover {
+  opacity: 0.85;
+}
+
+.branchList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.branchCard {
+  padding: 24px;
+}
+
+.branchCity {
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.branchInfo {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Map Pin Pulse animation */
+.mapPin {
+  fill: var(--accent-orange);
+  animation: pulseGlow 2s infinite;
+}
+
+/* STEPS SECTION */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+}
+
+.stepBox {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+}
+
+.stepNum {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: var(--accent-gradient);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.2);
+}
+
+.stepTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.stepDesc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* REVIEWS SECTION */
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.reviewCard {
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.reviewQuote {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.studentMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.studentAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  color: var(--accent-orange);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--glass-border);
+}
+
+.studentName {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.studentUniv {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* FAQ SECTION */
+.faqSection {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.faqGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faqCard {
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-glow);
+  transition: var(--transition-smooth);
+}
+
+.faqCard:hover {
+  border-color: rgba(249, 115, 22, 0.2);
+  box-shadow: 0 10px 40px -10px rgba(249, 115, 22, 0.08);
+  transform: translateY(-2px);
+  background: #ffffff;
+}
+
+.faqQuestion {
+  width: 100%;
+  padding: 24px 30px;
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.faqQuestion:hover {
+  color: var(--accent-orange);
+}
+
+.faqIcon {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.faqAnswerPanel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(15, 23, 42, 0.02);
+}
+
+.faqAnswerPanelOpen {
+  max-height: 200px;
+}
+
+.faqAnswer {
+  padding: 0 30px 24px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 968px) {
+  .bannerTitle {
+    font-size: 3rem;
+  }
+  .whatIsGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .doubtsGrid {
+    grid-template-columns: 1fr;
+  }
+  .mapGrid {
+    grid-template-columns: 1fr;
+  }
+  .stepsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .reviewsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .bannerTitle {
+    font-size: 2.2rem;
+  }
+  .bannerBtns {
+    flex-direction: column;
+    width: 100%;
+  }
+  .bannerBtns > a {
+    width: 100%;
+  }
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+}

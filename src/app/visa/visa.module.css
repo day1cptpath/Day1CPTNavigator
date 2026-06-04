@@ -1,0 +1,147 @@
+.tabsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.tabBtn {
+  padding: 14px 24px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  background: rgba(15, 23, 42, 0.02);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.tabBtn:hover {
+  border-color: var(--accent-orange);
+  color: var(--accent-orange);
+}
+
+.tabBtnActive {
+  background: var(--accent-gradient);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 20px rgba(249, 115, 22, 0.25);
+}
+
+/* Steps Layout */
+.wizardWrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.stepsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+}
+
+/* Connecting line behind steps */
+.stepsGrid::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 40px;
+  bottom: 40px;
+  width: 2px;
+  background: rgba(15, 23, 42, 0.06);
+  z-index: 1;
+}
+
+.stepCard {
+  display: flex;
+  gap: 24px;
+  padding: 30px;
+  z-index: 2;
+  position: relative;
+}
+
+.stepNumber {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: var(--transition-bounce);
+  box-shadow: var(--glass-glow);
+}
+
+.stepCard:hover .stepNumber {
+  background: var(--accent-gradient);
+  color: #fff;
+  border-color: transparent;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+}
+
+.stepInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stepTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stepDesc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Compliance Alert Card */
+.complianceCard {
+  margin-top: 50px;
+  padding: 30px;
+  border-left: 4px solid var(--accent-orange);
+}
+
+.complianceTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--accent-orange);
+}
+
+.complianceDesc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .stepCard {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .stepsGrid::before {
+    display: none;
+  }
+  .stepNumber {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+}

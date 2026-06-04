@@ -1,0 +1,160 @@
+import fs from 'fs';
+import path from 'path';
+
+export const dbPath = path.join(process.cwd(), 'src/data/db.json');
+
+const INITIAL_UNIVERSITIES = [
+  {
+    id: 1,
+    name: 'Westcliff University',
+    location: 'Irvine, California',
+    region: 'West',
+    degreeCategory: 'Both',
+    accreditation: 'WASC Accredited',
+    tuition: '$12,500 - $14,000 / year',
+    onsiteFrequency: '1 Weekend per Semester',
+    majors: ['MSCS', 'MSIT', 'MBA', 'DBA'],
+    programs: [
+      'MS Computer Science (STEM)',
+      'MS Information Technology (STEM)',
+      'Master of Business Administration (MBA)',
+      'Doctor of Business Administration (DBA)'
+    ],
+    logo: ''
+  },
+  {
+    id: 2,
+    name: 'Monroe College',
+    location: 'Bronx, New York',
+    region: 'East',
+    degreeCategory: 'Both',
+    accreditation: 'MSCHE Accredited',
+    tuition: '$15,000 - $16,500 / year',
+    onsiteFrequency: '1 Weekend per Month',
+    majors: ['MSCS', 'MSDS', 'MBA'],
+    programs: [
+      'MS Computer Science (STEM)',
+      'MS Data Science (STEM)',
+      'Master of Business Administration (MBA)',
+      'MS Forensic Psychology'
+    ],
+    logo: ''
+  },
+  {
+    id: 3,
+    name: 'New England College',
+    location: 'Boston, Massachusetts',
+    region: 'East',
+    degreeCategory: 'Both',
+    accreditation: 'NECHE Accredited',
+    tuition: '$13,500 - $14,500 / year',
+    onsiteFrequency: '1 Weekend every 7 Weeks',
+    majors: ['MSCS', 'MSDA', 'MBA'],
+    programs: [
+      'MS Computer Science (STEM)',
+      'MS Data Analytics (STEM)',
+      'Executive Master of Business Administration'
+    ],
+    logo: ''
+  },
+  {
+    id: 4,
+    name: 'Trine University',
+    location: 'Phoenix, Arizona',
+    region: 'West',
+    degreeCategory: 'Both',
+    accreditation: 'HLC Accredited',
+    tuition: '$11,500 - $13,000 / year',
+    onsiteFrequency: '1 Weekend per Semester',
+    majors: ['MSIS', 'MSEM', 'MBA'],
+    programs: [
+      'MS Information Studies (STEM)',
+      'MS Engineering Management (STEM)',
+      'Master of Business Administration (MBA)'
+    ],
+    logo: ''
+  },
+  {
+    id: 5,
+    name: 'Harrisburg University',
+    location: 'Harrisburg, Pennsylvania',
+    region: 'East',
+    degreeCategory: 'Tech',
+    accreditation: 'MSCHE Accredited',
+    tuition: '$16,000 - $17,000 / year',
+    onsiteFrequency: '1 Saturday per Month',
+    majors: ['MSCS', 'MSDS', 'Analytics'],
+    programs: [
+      'MS Computer Science (STEM)',
+      'MS Analytics (STEM)',
+      'MS Project Management (STEM)'
+    ],
+    logo: ''
+  },
+  {
+    id: 6,
+    name: 'Sofia University',
+    location: 'Palo Alto, California',
+    region: 'West',
+    degreeCategory: 'Both',
+    accreditation: 'WASC Accredited',
+    tuition: '$13,800 - $15,200 / year',
+    onsiteFrequency: '1 Weekend every 6 Weeks',
+    majors: ['MSCS', 'MBA'],
+    programs: [
+      'MS Computer Science (STEM)',
+      'Master of Business Administration (MBA)'
+    ],
+    logo: ''
+  }
+];
+
+const INITIAL_REVIEWS = [
+  {
+    id: 1,
+    quote: "When my STEM OPT expired without an H-1B draw, I was stressed. CPT Navigator matched me with Westcliff University. The enrollment process was incredibly fast, and I was approved for CPT immediately. Highly recommend their service!",
+    avatar: "RP",
+    name: "Rajesh Patel",
+    univ: "Westcliff University | Software Engineer"
+  },
+  {
+    id: 2,
+    quote: "The change of status transition from H-1B to F-1 is complex. The advisors here walked me through consular processing step-by-step. I got my F-1 visa approved in 2 weeks and enrolled at Trine University. Smooth transition!",
+    avatar: "LW",
+    name: "Lin Wei",
+    univ: "Trine University | Data Analyst"
+  },
+  {
+    id: 3,
+    quote: "I was looking for a budget-friendly hybrid option with monthly Saturday attendance. Monroe College in New York was the perfect match. The advisors also helped me transfer 6 credits, saving me over $3,000 in tuition!",
+    avatar: "PS",
+    name: "Priya Sharma",
+    univ: "Monroe College | Financial Analyst"
+  }
+];
+
+export function readDb() {
+  if (!fs.existsSync(dbPath)) {
+    const initialData = { universities: INITIAL_UNIVERSITIES, reviews: INITIAL_REVIEWS };
+    fs.mkdirSync(path.dirname(dbPath), { recursive: true });
+    fs.writeFileSync(dbPath, JSON.stringify(initialData, null, 2), 'utf-8');
+    return initialData;
+  }
+  try {
+    const data = fs.readFileSync(dbPath, 'utf-8');
+    return JSON.parse(data);
+  } catch (error) {
+    // If JSON is malformed or corrupted, return initial state
+    return { universities: INITIAL_UNIVERSITIES, reviews: INITIAL_REVIEWS };
+  }
+}
+
+export function writeDb(data: any) {
+  fs.mkdirSync(path.dirname(dbPath), { recursive: true });
+  fs.writeFileSync(dbPath, JSON.stringify(data, null, 2), 'utf-8');
+}
+
+export function checkAuth(request: Request) {
+  const cookieHeader = request.headers.get('cookie') || '';
+  return cookieHeader.includes('admin_session=authenticated');
+}
